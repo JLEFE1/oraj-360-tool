@@ -10,8 +10,7 @@ import java.time.LocalDate;
 /**
  * Created by stevedezitter on 22/04/15.
  */
-//CorrectCode: --> @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "timelineEventType")
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "timelineEventType")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "timelineEventType", visible=true)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = FollowUpMeeting.class, name = "FOLLOW_UP_MEETING"),
         @JsonSubTypes.Type(value = Course.class, name = "COURSE"),
