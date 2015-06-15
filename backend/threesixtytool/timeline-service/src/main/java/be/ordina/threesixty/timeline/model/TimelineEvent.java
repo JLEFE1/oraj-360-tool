@@ -10,11 +10,15 @@ import java.time.LocalDate;
 /**
  * Created by stevedezitter on 22/04/15.
  */
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "timelineEventType")
+//CorrectCode: --> @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "timelineEventType")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "timelineEventType")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = FollowUpMeeting.class, name = "FOLLOW_UP_MEETING"),
         @JsonSubTypes.Type(value = Course.class, name = "COURSE"),
-        @JsonSubTypes.Type(value = Satisfaction.class, name = "SATISFACTION")
+        @JsonSubTypes.Type(value = Satisfaction.class, name = "SATISFACTION"),
+        @JsonSubTypes.Type(value = Conference.class, name = "CONFERENCE"),
+        @JsonSubTypes.Type(value = Training.class, name = "TRAINING"),
+        @JsonSubTypes.Type(value = Workshop.class, name = "WORKSHOP")
 })
 @Document
 public class TimelineEvent {
